@@ -9,7 +9,6 @@ cowpy
 dataclasses
 DateTime
 emoji
-fake_useragent
 fonttools
 geopy
 gitpython
