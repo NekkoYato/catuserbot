@@ -76,6 +76,7 @@ async def bot_start(event):
         return
     reply_to = await reply_id(event)
     mention = f"[{chat.first_name}](tg://user?id={chat.id})"
+    PIC = gvarstatus("START_PIC") or "https://telegra.ph/file/360adbb434e877f5bf790.mp4"
     my_mention = f"[{user.first_name}](tg://user?id={user.id})"
     first = chat.first_name
     last = chat.last_name
@@ -104,29 +105,22 @@ async def bot_start(event):
             )
         else:
             start_msg = f"Hey! 👤{mention},\
-                        \nI am {my_mention}'s assistant bot.\
-                        \nYou can contact to my master from here.\
-                        \n\nPowered by [Catuserbot](https://t.me/catuserbot)"
-        buttons = [
-            (
-                Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
-                Button.url(
-                    "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
-                ),
-            )
-        ]
+                        \nI am {my_mention}'s personal assistant.\
+                        \nYou can contact my master from here. ｡◕‿◕｡"
+        buttons = None
     else:
         start_msg = "Hey Master!\
             \nHow can i help you ?"
         buttons = None
     try:
-        await event.client.send_message(
+        await event.client.send_file(
             chat.id,
-            start_msg,
+            PIC,
+            caption=start_msg,
             link_preview=False,
             buttons=buttons,
             reply_to=reply_to,
+            allow_cache=True,
         )
     except Exception as e:
         if BOTLOG:
@@ -476,3 +470,14 @@ async def antif_on_msg(event):
         raise StopPropagation
     if user_id in FloodConfig.BANNED_USERS:
         FloodConfig.BANNED_USERS.remove(user_id)
+
+
+@catub.bot_cmd(
+    pattern=f"^/ping({botusername})?([\s]+)?$",
+)
+async def _(event):
+    start = datetime.now()
+    catevent = await event.reply("Pong!")
+    end = datetime.now()
+    ms = (end - start).microseconds / 1000
+    await catevent.edit(f"Pong!\n`{ms} ms`")
