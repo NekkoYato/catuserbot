@@ -39,13 +39,15 @@ def random_color():
     ]
 
 
-FONTS = "1. `ProductSans-BoldItalic.ttf`\n2. `ProductSans-Light.ttf`\n3. `RoadRage-Regular.ttf`\n4. `digital.ttf`\n5. `impact.ttf`"
+FONTS = "1. `ProductSans-BoldItalic.ttf`\n2. `ProductSans-Light.ttf`\n3. `RoadRage-Regular.ttf`\n4. `digital.ttf`\n5. `impact.ttf`\n6. `assfont.ttf `\n7. `iosevka_nerd_font.ttf`"
 font_list = [
     "ProductSans-BoldItalic.ttf",
     "ProductSans-Light.ttf",
     "RoadRage-Regular.ttf",
     "digital.ttf",
     "impact.ttf",
+    "assfont.ttf",
+    "iosevka_nerd_font.ttf",
 ]
 
 
