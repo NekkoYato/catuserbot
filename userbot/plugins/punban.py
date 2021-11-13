@@ -41,9 +41,6 @@ async def very(event):
     await edit_or_reply(event, "**Just hold a sec u horny kid...**")
     if await age_verification(event, reply_to):
         return
-    flag = await useless.importent(event)
-    if flag:
-        return
     max_try = 0
     while max_try < 5:
         subreddit_api = f"{API}/{sub_r}" if sub_r else f"{API}/60fpsporn"
@@ -132,9 +129,6 @@ async def bad(event):
         return await edit_delete(event, "**Value error!.. Count value 1 to 30**")
     await edit_or_reply(event, "**Just hold a sec u horny kid...**")
     if await age_verification(event, reply_to):
-        return
-    flag = await useless.importent(event)
-    if flag:
         return
     subreddit_api = f"{API}/{sub_r}/{count}"
     try:
@@ -233,9 +227,6 @@ async def pussy(event):
         return await edit_delete(event, "Value error!.")
     if await age_verification(event, reply_to):
         return
-    flag = await useless.importent(event)
-    if flag:
-        return
     title = []
     media_url = []
     try:
@@ -304,9 +295,6 @@ async def cat(event):
         xtext = "stepsis"
     if await age_verification(event, reply_to):
         return
-    flag = await useless.importent(event)
-    if flag:
-        return
     page = requests.get(f"https://www.xvideos.com/?k={xtext}&p={int(page)}")
     soup = BeautifulSoup(page.text, "lxml")
     col = soup.findAll("div", {"class": "thumb"})
@@ -367,9 +355,6 @@ async def wants_ur_noods(event):
     plink = extractor.find_urls(intxt)
     await edit_or_reply(event, "** Just hold a sec u horny kid...**")
     if await age_verification(event, reply_to):
-        return
-    flag = await useless.importent(event)
-    if flag:
         return
     i = 0
     for m in plink:
