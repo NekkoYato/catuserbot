@@ -45,6 +45,8 @@ async def bot_help(event):
 • **Cmd : **/broadcast
 • **Info : **__Reply to a message to get broadcasted to every user who started your bot. To get list of users use__ `{cmhd}bot_users`.
 • **Note : **__if user stoped/blocked the bot then he will be removed from your database that is he will erased from the bot_starters list.__
+• **Cmd : **/ping
+• **Info : **__Check bot ping.__
 """
     )
 
