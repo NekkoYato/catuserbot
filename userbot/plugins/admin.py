@@ -360,7 +360,7 @@ async def startmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{e}`")
         else:
-            await event.edit("`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await event.edit("`Successfully muted that person.`")
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,
@@ -452,7 +452,7 @@ async def endmute(event):
         replied_user = await event.client(GetFullUserRequest(event.chat_id))
         if not is_muted(event.chat_id, event.chat_id):
             return await event.edit(
-                "`__This user is not muted in this chat__\n（ ^_^）o自自o（^_^ ）`"
+                "`__This user is not muted in this chat__`"
             )
         try:
             unmute(event.chat_id, event.chat_id)
@@ -460,7 +460,7 @@ async def endmute(event):
             await event.edit(f"**Error **\n`{e}`")
         else:
             await event.edit(
-                "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
+                "`Successfully unmuted that person. `"
             )
         if BOTLOG:
             await event.client.send_message(
