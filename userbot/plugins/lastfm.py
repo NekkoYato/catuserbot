@@ -31,7 +31,7 @@ LASTFM_API = Config.LASTFM_API
 LASTFM_SECRET = Config.LASTFM_SECRET
 LASTFM_USERNAME = Config.LASTFM_USERNAME
 LASTFM_PASSWORD_PLAIN = Config.LASTFM_PASSWORD_PLAIN
-
+ALIVE_NAME = Config.ALIVE_NAME
 LASTFM_PASS = md5(LASTFM_PASSWORD_PLAIN)
 if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
     lastfm = LastFMNetwork(
@@ -183,10 +183,10 @@ async def last_fm(lastFM):
         rectrack = parse.quote(f"{playing}")
         rectrack = sub("^", "https://open.spotify.com/search/", rectrack)
         if image:
-            output = f"[‎]({image})[{LASTFM_USERNAME}]({username}) __is now listening to:__\n\n• [{playing}]({rectrack})\n"
+            output = f"[‎]({image})[{ALIVE_NAME}]({username}) __is now listening to:__\n\n• [{playing}]({rectrack})\n"
             preview = True
         else:
-            output = f"[{LASTFM_USERNAME}]({username}) __is now listening to:__\n\n• [{playing}]({rectrack})\n"
+            output = f"[{ALIVE_NAME}]({username}) __is now listening to:__\n\n• [{playing}]({rectrack})\n"
     else:
         recent = User(LASTFM_USERNAME, lastfm).get_recent_tracks(limit=3)
         playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
@@ -205,6 +205,23 @@ async def last_fm(lastFM):
     else:
         await lastFM.edit(f"{output}", parse_mode="md")
 
+@catub.cat_cmd(
+    pattern="now$",
+    command=("now", plugin_category),
+    info={
+        "header": "Send your current listening song from Lastfm/Spotify/Deezer.",
+        "usage": "{tr}now",
+        "note": "For working of this command, you need to authorize @NowPlayBot.",
+    },
+)
+async def now(event):
+    "Send your current listening song."
+    text = " "
+    reply_to_id = await reply_id(event)
+    bot_name = "@nowplaybot"
+    text = deEmojify(text)
+    await event.delete()
+    await hide_inlinebot(event.client, bot_name, text, event.chat_id, reply_to_id)
 
 @catub.cat_cmd(
     pattern="lastbio (on|off)",
