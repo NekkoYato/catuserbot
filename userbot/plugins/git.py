@@ -199,3 +199,4 @@ async def git_commit(file_name, mone):
             await mone.edit("Cannot Upload Plugin")
     else:
         return await mone.edit("`Committed Suicide`")
+    
