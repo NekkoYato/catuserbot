@@ -30,6 +30,6 @@ jobs:
           commit_message: 'pylint: auto fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: Jisan09
-          commit_user_email: 66010486+Jisan09@users.noreply.github.com
-          commit_author: Jisan09 <66010486+Jisan09@users.noreply.github.com>
+          commit_user_name: NekkoYato
+          commit_user_email: nekkoyato@gmail.com
+          commit_author: NekkoYato <6nekkoyato@gmail.com>
