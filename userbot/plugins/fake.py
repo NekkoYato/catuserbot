@@ -1,4 +1,4 @@
-\import asyncio
+import asyncio
 from random import choice, randint
 
 from telethon.errors import BadRequestError
