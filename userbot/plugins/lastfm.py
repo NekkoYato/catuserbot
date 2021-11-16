@@ -280,26 +280,6 @@ async def lastlog(lstlog):
     else:
         await lstlog.edit(LFM_LOG_ERR)
 
-
-@catub.cat_cmd(
-    pattern="now$",
-    command=("now", plugin_category),
-    info={
-        "header": "Send your current listening song from Lastfm/Spotify/Deezer.",
-        "usage": "{tr}now",
-        "note": "For working of this command, you need to authorize @NowPlayBot.",
-    },
-)
-async def now(event):
-    "Send your current listening song."
-    text = " "
-    reply_to_id = await reply_id(event)
-    bot_name = "@nowplaybot"
-    text = deEmojify(text)
-    await event.delete()
-    await hide_inlinebot(event.client, bot_name, text, event.chat_id, reply_to_id)
-
-
 @catub.cat_cmd(
     pattern="inow$",
     command=("inow", plugin_category),
