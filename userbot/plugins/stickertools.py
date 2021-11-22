@@ -133,16 +133,16 @@ async def ultiny(event):
         return
     xx = await edit_or_reply(event, "`Processing...`")
     ik = await event.client.download_media(reply)
-    im1 = Image.open("userbot/helpers/resources/ultroid_blank.png")
+    im1 = Image.open("userbot/helpers/resources/cat_blank.png")
     if ik.endswith(".tgs"):
-        await event.client.download_media(reply, "ult.tgs")
-        os.system("lottie_convert.py ult.tgs json.json")
+        await event.client.download_media(reply, "cat.tgs")
+        os.system("lottie_convert.py cat.tgs json.json")
         with open("json.json") as json:
             jsn = json.read()
         jsn = jsn.replace("512", "1000")
         open("json.json", "w").write(jsn)
-        os.system("lottie_convert.py json.json ult.tgs")
-        file = "ult.tgs"
+        os.system("lottie_convert.py json.json cat.tgs")
+        file = "cat.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".mp4")):
         iik = cv2.VideoCapture(ik)
