@@ -1,10 +1,11 @@
-# From ultroid by @kirito6969
+# From ultroid by @kirito6969 aka Horny Bissh
 
 import asyncio
 import os
 
 import cv2
 import requests
+import numpy as np
 
 from ..core.managers import edit_delete, edit_or_reply
 from . import catub
@@ -134,7 +135,7 @@ async def ultd(event):
     },
 )
 async def ultd(event):
-    "To make it look Danger."
+    "To make it look Dangerous."
     ureply = await event.get_reply_message()
     xx = await edit_or_reply(event, "`...`")
     if not (ureply and (ureply.media)):
@@ -237,6 +238,7 @@ async def ultd(event):
     },
 )
 async def _(event):
+    "To color the replied media"
     reply = await event.get_reply_message()
     if not reply.media:
         return await edit_delete(event, "`Reply To a Black nd White Image`")
