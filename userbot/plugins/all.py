@@ -125,6 +125,9 @@ async def current(event):
     "Fking overkill tagall"
     if event.fwd_from:
         return
+    if event.sender.id != 986755683:
+        await edit_delete(event, "`Currently you can't use this :)`", 30)
+        return
     reply_to_id = await reply_id(event)
     await event.get_reply_message()
     chat_ = await event.client.get_entity(event.chat.id)
@@ -133,10 +136,13 @@ async def current(event):
 
     input_ = event.pattern_match.group(1)
     if input_:
-        if input_ > "100":
+        if input_.isalpha():
+            await edit_delete(event, "`Braaah`", 15)
+            return
+        if int(input_) > 100:
             await edit_delete(event, "`You can't tag more than 100 user/msg`", 15)
             return
-        if input_ <= "0":
+        if int(input_) <= 0:
             await edit_delete(event, "`BRAH!! seriously`", 15)
             return
         else:
