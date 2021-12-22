@@ -69,5 +69,5 @@ vcsi
 wand
 wget
 git+https://github.com/goldsmith/Wikipedia
-youtube-search-python==1.4.9
-git+https://github.com/yt-dlp/yt-dlp
+youtube-search-python
+youtube_dl
