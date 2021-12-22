@@ -8,6 +8,7 @@ covid
 cowpy
 dataclasses
 DateTime
+dnspython
 emoji
 fonttools
 geopy
@@ -21,7 +22,6 @@ gtts
 hachoir
 heroku3
 html-telegraph-poster
-httpx==0.18.2
 humanize
 IMDbPY
 jikanpy
@@ -71,4 +71,4 @@ wand
 wget
 git+https://github.com/goldsmith/Wikipedia
 youtube-search-python
-git+https://github.com/yt-dlp/yt-dlp
+yt-dlp==2021.11.10.1
