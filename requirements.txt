@@ -70,4 +70,4 @@ wand
 wget
 git+https://github.com/goldsmith/Wikipedia
 youtube-search-python
-youtube_dl
+git+https://github.com/yt-dlp/yt-dlp
