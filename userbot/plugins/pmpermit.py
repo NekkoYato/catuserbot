@@ -793,11 +793,6 @@ async def disapprove_p_m(event):
 )
 async def block_p_m(event):
     "To block user to direct message you."
-    if gvarstatus("pmpermit") is None:
-        return await edit_delete(
-            event,
-            f"__Turn on pmpermit by doing __`{cmdhd}pmguard on` __for working of this plugin__",
-        )
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
