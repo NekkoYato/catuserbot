@@ -76,8 +76,8 @@ def verify_cond(catarray, text):
 
 def pack_name(userid, pack, is_anim):
     if is_anim:
-        return f"bang_bros_{pack}_anim"
-    return f"bang_bros_{pack}"
+        return f"catuserbot_{userid}_{pack}_anim"
+    return f"catuserbot_{userid}_{pack}"
 
 
 def char_is_emoji(character):
@@ -126,8 +126,9 @@ def pack_nick(username, pack, is_anim):
         )
 
     if is_anim:
-        return f"@{username}'s Secret Layer Vol.{pack} Animated"
-    return f"@{username}'s Secret Layer Vol.{pack}"
+       return f"@{username} Vol.{pack} (Animated)"
+    else:
+        return f"@{username} Vol.{pack}"
 
 
 async def resize_photo(photo):
@@ -781,15 +782,15 @@ async def get_pack_info(event):
 
 
 @catub.cat_cmd(
-    pattern="loda$",
-    command=("loda", plugin_category),
+    pattern="stdl$",
+    command=("stdl", plugin_category),
     info={
         "header": "To download whole sticker pack in a zip file",
-        "description": "Not for Noobs",
-        "usage": "{tr}loda <reply to a sticker>",
+        "usage": "{tr}stdl <reply to a sticker>",
     },
 )
 async def _(event):
+    "Download sticker pack as a zip file"
     if event.fwd_from:
         return
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -806,8 +807,8 @@ async def _(event):
             return
         is_a_s = is_it_animated_sticker(reply_message)
         file_ext_ns_ion = "webp"
-        file_caption = "`Now Pay me 69$`"
-        a = await edit_or_reply(event, "`Hold on! Doing mejik`")
+        file_caption = "`Here is your zip file`"
+        a = await edit_or_reply(event, "`Hold on! Working on it!`")
         if is_a_s:
             file_ext_ns_ion = "tgs"
             file_caption = "Forward the ZIP file to @AnimatedStickersRoBot to get lottie JSON containing the vector information."
@@ -903,7 +904,7 @@ async def cb_sticker(event):
     results = soup.find_all("div", {"class": "sticker-pack__header"})
     if not results:
         return await edit_delete(catevent, "`No results found :(.`", 5)
-    reply = f"**SᴛɪᴄᴋEʀs Aᴠᴀɪʟᴀʙʟᴇ Fᴏʀ {split} ~**\n\n"
+    reply = f"**Sticker packs found for {split} are :**"
     for pack in results:
         if pack.button:
             packtitle = (pack.find("div", "sticker-pack__title")).get_text()
